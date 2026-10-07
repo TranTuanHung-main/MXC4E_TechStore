@@ -1,53 +1,67 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="vi">
-  <head>
+
+<head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>TechStore · Version 01</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechStore - Visual Store Theme (V02)</title>
+    <!-- Kết nối external stylesheet -->
     <link rel="stylesheet" href="style.css">
-  </head>
-  <body>
-    <div class="shop" id="store">
-      <header class="store-header">
-        <b>TECH / STORE</b>
-        <nav class="store-nav">Sản phẩm · Ưu đãi · Hỗ trợ</nav>
-        <button class="cart" id="cart-button">Giỏ hàng <span class="cart-count" id="cart-count">0</span></button>
-      </header>
-      <section class="hero">
-        <small>NEW COLLECTION</small>
-        <h1>Gear tốt hơn.<br>Học tập tập trung hơn.</h1>
-        <p>Thiết bị được chọn cho góc làm việc của sinh viên công nghệ.</p>
-        <button>Khám phá sản phẩm</button>
-      </section>
-      <div class="toolbar">
-        <input id="search" type="search" aria-label="Tìm sản phẩm" placeholder="Tìm sản phẩm…">
-        <select id="category" aria-label="Danh mục">
-          <option value="all">Tất cả</option>
-          <option>Gear</option>
-          <option>Audio</option>
-          <option>Desk</option>
-        </select>
-      </div>
-      <main>
-        <h2>Sản phẩm nổi bật</h2>
-        <div class="products" id="products">
-          <article class="product-card">
-            <div style="display:grid;place-items:center;height:110px;font-size:52px;background:#eef2f8;border-radius:10px">⌨️</div>
-            <h3>Nova Keyboard</h3>
-            <p class="price">1.290.000đ</p>
-          </article>
-          <article class="product-card">
-            <div style="display:grid;place-items:center;height:110px;font-size:52px;background:#eef2f8;border-radius:10px">🎧</div>
-            <h3>Pulse Headphones</h3>
-            <p class="price">890.000đ</p>
-          </article>
-        </div>
-      </main>
-      <aside class="cart-drawer" id="cart">
-        <h2>Giỏ hàng</h2>
-        <div id="cart-items"></div>
-        <p><b id="cart-total">Tổng: 0đ</b></p>
-      </aside>
+</head>
+
+<body>
+    <div class="store-container">
+        <!-- Header / Navbar -->
+        <header class="navbar">
+            <div class="brand">TECH / STORE</div>
+            <nav class="nav-links">
+                <a href="#products">Sản phẩm</a>
+                <a href="#deals">Ưu đãi</a>
+                <a href="#support">Hỗ trợ</a>
+            </nav>
+            <button class="btn-cart">Giỏ hàng</button>
+        </header>
+
+        <!-- Hero Banner -->
+        <section class="hero-banner">
+            <span class="badge-tag">NEW COLLECTION</span>
+            <h1 class="hero-title">
+                Gear tốt hơn.<br>
+                Học tập tập trung hơn.
+            </h1>
+            <p class="hero-desc">Thiết bị được chọn cho góc làm việc của sinh viên công nghệ.</p>
+            <button class="btn-primary">Khám phá sản phẩm</button>
+        </section>
+
+        <!-- Danh sách sản phẩm nổi bật -->
+        <section class="featured-section" id="products">
+            <h2 class="section-title">Sản phẩm nổi bật</h2>
+
+            <div class="product-list">
+                <!-- Card 1 -->
+                <article class="product-card">
+                    <div class="product-info">
+                        <h3 class="product-name">Nova Keyboard</h3>
+                        <p class="product-price">1.290.000đ</p>
+                    </div>
+                    <div class="product-thumb">
+                        <span class="product-icon">⌨️</span>
+                    </div>
+                </article>
+
+                <!-- Card 2 -->
+                <article class="product-card">
+                    <div class="product-info">
+                        <h3 class="product-name">Pulse Headphones</h3>
+                        <p class="product-price">890.000đ</p>
+                    </div>
+                    <div class="product-thumb">
+                        <span class="product-icon">🎧</span>
+                    </div>
+                </article>
+            </div>
+        </section>
     </div>
-  </body>
+</body>
+
 </html>
