@@ -4,64 +4,99 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TechStore - Visual Store Theme (V03)</title>
-    <!-- Kết nối external stylesheet -->
+    <title>TechStore - V03</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
+
+    <!-- Toàn bộ nội dung nằm gọn trong container có max-width -->
     <div class="store-container">
-        <!-- Header / Navbar -->
-        <header class="navbar">
-            <div class="brand">TECH / STORE</div>
-            <nav class="nav-links">
-                <a href="#products">Sản phẩm</a>
-                <a href="#deals">Ưu đãi</a>
-                <a href="#support">Hỗ trợ</a>
+
+        <!-- HEADER (Được bo góc riêng) -->
+        <header class="header">
+            <div class="logo">TECH / STORE</div>
+            <nav class="nav">
+                <a href="#">Sản phẩm</a>
+                <span class="nav-dot">·</span>
+                <a href="#">Ưu đãi</a>
+                <span class="nav-dot">·</span>
+                <a href="#">Hỗ trợ</a>
             </nav>
-            <button class="btn-cart">Giỏ hàng</button>
+            <button class="cart" id="openModalBtn">
+                Giỏ hàng
+                <span class="cart-count">2</span>
+            </button>
         </header>
 
-        <!-- Hero Banner -->
-        <section class="hero-banner">
-            <span class="badge-tag">NEW COLLECTION</span>
-            <h1 class="hero-title">
-                Gear tốt hơn.<br>
-                Học tập tập trung hơn.
-            </h1>
+        <!-- HERO BANNER (Được bo góc riêng) -->
+        <section class="hero">
+            <span class="badge">NEW COLLECTION</span>
+            <h1 class="hero-title">Gear tốt hơn.<br>Học tập tập trung hơn.</h1>
             <p class="hero-desc">Thiết bị được chọn cho góc làm việc của sinh viên công nghệ.</p>
             <button class="btn-primary">Khám phá sản phẩm</button>
         </section>
 
-        <!-- Danh sách sản phẩm nổi bật -->
-        <section class="featured-section" id="products">
+        <!-- DANH SÁCH SẢN PHẨM -->
+        <section class="products">
             <h2 class="section-title">Sản phẩm nổi bật</h2>
 
             <div class="product-list">
-                <!-- Card 1 -->
-                <article class="product-card">
+                <!-- Sản phẩm 1: Nova Keyboard -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <span class="discount">-10%</span>
+                        <span class="icon">⌨️</span>
+                    </div>
                     <div class="product-info">
-                        <h3 class="product-name">Nova Keyboard</h3>
+                        <h3 class="product-title">Nova Keyboard</h3>
                         <p class="product-price">1.290.000đ</p>
                     </div>
-                    <div class="product-thumb">
-                        <span class="product-icon">⌨️</span>
-                    </div>
-                </article>
+                </div>
 
-                <!-- Card 2 -->
-                <article class="product-card">
+                <!-- Sản phẩm 2: Pulse Headphones -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <span class="discount">-15%</span>
+                        <span class="icon">🎧</span>
+                    </div>
                     <div class="product-info">
-                        <h3 class="product-name">Pulse Headphones</h3>
+                        <h3 class="product-title">Pulse Headphones</h3>
                         <p class="product-price">890.000đ</p>
                     </div>
-                    <div class="product-thumb">
-                        <span class="product-icon">🎧</span>
-                    </div>
-                </article>
+                </div>
             </div>
         </section>
+
     </div>
+
+    <!-- MODAL (V03: fixed & z-index) -->
+    <div class="modal" id="modal">
+        <div class="modal-content">
+            <button class="modal-close" id="closeModalBtn">&times;</button>
+            <div class="modal-icon">🛒</div>
+            <h3>Giỏ hàng</h3>
+            <p class="modal-text">Bạn đang có 2 sản phẩm trong giỏ hàng.</p>
+            <div class="modal-actions">
+                <button class="btn-primary" onclick="closeModal()">Xem giỏ hàng</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const modal = document.getElementById('modal');
+        const openBtn = document.getElementById('openModalBtn');
+        const closeBtn = document.getElementById('closeModalBtn');
+
+        openBtn.addEventListener('click', () => modal.classList.add('show'));
+        closeBtn.addEventListener('click', () => modal.classList.remove('show'));
+        window.addEventListener('click', (e) => {
+            if (e.target === modal) modal.classList.remove('show');
+        });
+        function closeModal() {
+            modal.classList.remove('show');
+        }
+    </script>
 </body>
 
 </html>

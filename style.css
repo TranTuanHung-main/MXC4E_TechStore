@@ -1,206 +1,275 @@
-/* =========================================================
-   Design Tokens & CSS Variables
-   ========================================================= */
-:root {
-  --brand: #ff6b35;
-  --surface: #111726;
-  --surface-card: #f8fafc;
-  --text-main: #0f172a;
-  --text-muted: #94a3b8;
-  --bg-thumb: #edf2f7;
-  --radius-card: 18px;
-  --radius-btn: 9999px;
-  --font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-}
-
-* {
+/* ========================================================
+   1. RESET & BOX-SIZING
+   ======================================================== */
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
 body {
-  font-family: var(--font-family);
-  background-color: #f1f5f9;
-  color: var(--text-main);
-  padding: 24px 16px;
-  display: flex;
-  justify-content: center;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background-color: #ffffff;
+  color: #111827;
+  line-height: 1.5;
+  padding-bottom: 60px;
 }
 
+/* Khung bọc giới hạn chiều rộng của toàn trang */
 .store-container {
-  width: 100%;
-  max-width: 640px;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px 24px;
 }
 
-/* ================= Navbar ================= */
-.navbar {
-  background-color: var(--surface);
-  color: #ffffff;
-  padding: 14px 20px;
-  border-radius: var(--radius-card);
+/* ========================================================
+   2. HEADER (Bo góc cong như ảnh mẫu)
+   ======================================================== */
+.header {
+  background-color: #111827;
+  border-radius: 12px;
+  /* Bo góc header */
+  padding: 12px 24px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin-bottom: 20px;
 }
 
-.brand {
-  font-weight: 800;
+.logo {
+  color: #ffffff;
   font-size: 14px;
+  font-weight: 700;
   letter-spacing: 0.5px;
 }
 
-.nav-links {
+.nav {
   display: flex;
-  gap: 14px;
+  align-items: center;
+  gap: 8px;
 }
 
-.nav-links a {
+.nav a {
   color: #cbd5e1;
   text-decoration: none;
   font-size: 13px;
   transition: color 0.2s;
 }
 
-.nav-links a:hover {
+.nav a:hover {
   color: #ffffff;
 }
 
-.btn-cart {
-  background-color: var(--brand);
+.nav-dot {
+  color: #64748b;
+  font-size: 12px;
+}
+
+/* CSS Cart + Badge chuẩn theo slide của thầy */
+.cart {
+  position: relative;
+  background-color: #f97316;
   color: #ffffff;
   border: none;
-  border-radius: var(--radius-btn);
   padding: 7px 18px;
+  border-radius: 9999px;
   font-size: 12px;
-  font-weight: 700;
+  font-weight: 600;
   cursor: pointer;
-  transition: transform 0.15s ease, opacity 0.2s;
 }
 
-.btn-cart:hover {
-  opacity: 0.92;
-  transform: translateY(-1px);
-}
-
-/* ================= Hero Banner ================= */
-.hero-banner {
-  background-color: var(--surface);
+.cart-count {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background-color: #ef4444;
   color: #ffffff;
-  padding: 32px 24px;
-  border-radius: var(--radius-card);
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 12px;
+  font-size: 10px;
+  font-weight: 700;
+  width: 16px;
+  height: 16px;
+  line-height: 16px;
+  text-align: center;
+  border-radius: 50%;
+  border: 2px solid #ffffff;
 }
 
-.badge-tag {
-  color: var(--brand);
+/* ========================================================
+   3. HERO BANNER (Bo góc cong 20px)
+   ======================================================== */
+.hero {
+  background: linear-gradient(180deg, #1e293b 0%, #0f172a 100%);
+  color: #ffffff;
+  border-radius: 20px;
+  /* Bo góc hero banner */
+  padding: 48px 36px;
+  margin-bottom: 36px;
+}
+
+.badge {
+  display: inline-block;
   font-size: 11px;
-  font-weight: 800;
+  font-weight: 700;
   letter-spacing: 1px;
+  color: #94a3b8;
+  margin-bottom: 16px;
 }
 
 .hero-title {
-  font-size: 26px;
-  font-weight: 800;
+  font-size: 32px;
   line-height: 1.25;
-  color: #ffffff;
+  font-weight: 800;
+  margin-bottom: 14px;
 }
 
 .hero-desc {
-  font-size: 13px;
   color: #94a3b8;
-  max-width: 90%;
-  line-height: 1.5;
+  font-size: 14px;
+  margin-bottom: 24px;
 }
 
 .btn-primary {
-  background-color: var(--brand);
+  background-color: #f97316;
   color: #ffffff;
   border: none;
-  border-radius: var(--radius-btn);
-  padding: 9px 20px;
+  padding: 10px 22px;
+  border-radius: 9999px;
   font-size: 13px;
-  font-weight: 700;
+  font-weight: 600;
   cursor: pointer;
-  margin-top: 4px;
-  transition: transform 0.15s ease, filter 0.2s;
+  display: inline-block;
 }
 
-.btn-primary:hover {
-  filter: brightness(1.08);
-  transform: translateY(-1px);
-}
-
-/* ================= Featured Products ================= */
-.featured-section {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
+/* ========================================================
+   4. SẢN PHẨM NỔI BẬT
+   ======================================================== */
+.products {
+  width: 100%;
 }
 
 .section-title {
-  font-size: 18px;
-  font-weight: 800;
+  font-size: 20px;
+  font-weight: 700;
   color: #0f172a;
+  margin-bottom: 20px;
 }
 
 .product-list {
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 28px;
 }
 
 .product-card {
-  background-color: #ffffff;
-  border: 1px solid #e2e8f0;
-  border-radius: var(--radius-card);
-  padding: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  width: 100%;
 }
 
-.product-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(17, 23, 38, 0.08);
-}
-
-.product-info {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.product-name {
-  font-size: 15px;
-  font-weight: 700;
-  color: #0f172a;
-}
-
-.product-price {
-  font-size: 14px;
-  font-weight: 800;
-  color: #0f172a;
-}
-
-.product-thumb {
-  background-color: var(--bg-thumb);
-  width: 130px;
-  height: 80px;
-  border-radius: 12px;
+/* Khung hình ảnh bo góc */
+.product-image {
+  position: relative;
+  /* Neo cho discount badge */
+  background-color: #f1f5f9;
+  border-radius: 16px;
+  /* Bo góc khung sản phẩm */
+  height: 190px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.product-icon {
-  font-size: 28px;
+.icon {
+  font-size: 32px;
+}
+
+.discount {
+  position: absolute;
+  top: 12px;
+  right: 14px;
+  background-color: #f43f5e;
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 9999px;
+}
+
+.product-info {
+  margin-top: 12px;
+}
+
+.product-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 4px;
+}
+
+.product-price {
+  font-size: 14px;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+/* ========================================================
+   5. MODAL (fixed & z-index)
+   ======================================================== */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(15, 23, 42, 0.6);
+  z-index: 9999;
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal.show {
+  display: flex;
+}
+
+.modal-content {
+  position: relative;
+  background-color: #ffffff;
+  width: 90%;
+  max-width: 380px;
+  padding: 24px;
+  border-radius: 16px;
+  /* Bo góc modal */
+  text-align: center;
+}
+
+.modal-close {
+  position: absolute;
+  top: 12px;
+  right: 14px;
+  background: none;
+  border: none;
+  font-size: 22px;
+  color: #94a3b8;
+  cursor: pointer;
+}
+
+.modal-icon {
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+
+.modal-content h3 {
+  font-size: 18px;
+  margin-bottom: 6px;
+}
+
+.modal-text {
+  font-size: 13px;
+  color: #64748b;
+  margin-bottom: 18px;
+}
+
+.modal-actions .btn-primary {
+  width: 100%;
 }
